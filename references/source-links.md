@@ -15,7 +15,7 @@ Profile rules retained in this skill:
 - Single-column width: `89 mm`.
 - Double-column width: `183 mm`.
 - Optional intermediate width: `120-136 mm`, only when justified.
-- Helvetica/Arial-compatible sans-serif typography.
+- Arial-first sans-serif typography, with Helvetica-compatible fallbacks.
 - Conservative label target: `7 pt`; warn below `5 pt`.
 - RGB color workflow for original research figures.
 - Raster elements at final size, at least `300 dpi`.

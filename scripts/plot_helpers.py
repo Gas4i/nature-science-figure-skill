@@ -16,17 +16,18 @@ import numpy as np
 from figure_skill import (
     ARTICLE_INSPIRED_PALETTES,
     DEFAULT_COLORS,
+    NATMED_SENESCENCE_2026,
     NATCOMM_SSP_2025,
     NATURE654_GRAY_BLUE_RED_2026,
     NATURE637_RED_BLUE_2025,
     NATURE_ENERGY_RED_BLUE_2026,
     NATURE_FOOD_NATURAL_2026,
-    OKABE_ITO,
     PALETTE,
     PALETTE_PRESETS,
     PAUL_TOL_BRIGHT,
-    PAUL_TOL_MUTED,
+    SCIENTIFIC_FIGURE_HOUSE,
     SEMANTIC_COLORS,
+    TOL_HYBRID,
     apply_profile_style,
     export_figure,
     get_palette,
@@ -109,6 +110,38 @@ def create_subplots(profile: Mapping | str = "nature_main", width: str = "single
 def semantic_color(role: str, fallback_index: int = 0) -> str:
     """Return a semantic color, falling back to the safe qualitative cycle."""
     return SEMANTIC_COLORS.get(role, DEFAULT_COLORS[fallback_index % len(DEFAULT_COLORS)])
+
+
+def recommend_palette(
+    chart_type: str = "categorical",
+    category_count: int | None = None,
+    semantic_roles: Sequence[str] | None = None,
+    quiet: bool = False,
+) -> tuple[str, str]:
+    """Recommend a skill palette preset and a short audit-ready reason."""
+    chart = chart_type.lower().replace("-", "_").replace(" ", "_")
+    roles = {role.lower().replace("-", "_").replace(" ", "_") for role in (semantic_roles or [])}
+    n = category_count or 0
+
+    if "ssp" in roles:
+        return "natcomm_ssp_2025", "SSP scenario labels match the dedicated skill preset."
+    if {"biomedical", "senescence"} & roles or ("biomedical" in chart and 4 <= n <= 5):
+        return "natmed_senescence_2026", "Muted five-color biomedical conditions match the Nat Med senescence preset."
+    if {"control", "treatment"}.issubset(roles) and n == 3:
+        return "nature654_gray_blue_red_2026", "Three control/treatment-style groups match the gray-blue-red preset."
+    if {"positive", "negative"} & roles or "diverging" in chart or "difference" in chart:
+        return "nature637_red_blue_2025", "Signed or diverging values match the red-blue gradient preset."
+    if {"key", "improvement", "baseline"} & roles or "house_style" in roles:
+        return "scientific_figure_house", "Semantic blue-green-red-neutral roles match the scientific figure house palette."
+    if n == 2 and ("comparison" in chart or "contrast" in chart):
+        return "nature_energy_red_blue_2026", "Two-group high-contrast comparison fits the red-blue preset."
+    if quiet or n > 6:
+        return "scientific_figure_house", "A semantic house palette is preferable after removing the muted preset."
+    if any(token in chart for token in ("line_scatter_overlay", "line", "scatter", "trend")) and 2 <= n <= 5:
+        return "tol_hybrid", "Tol hybrid keeps Tol bright contrast while softening red for overlaid curves and points."
+    if 3 <= n <= 8:
+        return "paul_tol_bright", "Unordered categorical groups use the remaining high-contrast colorblind-aware preset."
+    return "paul_tol_bright", "Default high-contrast colorblind-aware preset; document any custom alternative if this does not fit."
 
 
 def _as_1d(values, name: str) -> np.ndarray:
@@ -329,18 +362,20 @@ def add_dedicated_legend(legend_ax, source_axes, ncol: int = 1, **kwargs):
 __all__ = [
     "DEFAULT_COLORS",
     "ARTICLE_INSPIRED_PALETTES",
+    "NATMED_SENESCENCE_2026",
     "NATCOMM_SSP_2025",
     "NATURE654_GRAY_BLUE_RED_2026",
     "NATURE637_RED_BLUE_2025",
     "NATURE_ENERGY_RED_BLUE_2026",
     "NATURE_FOOD_NATURAL_2026",
-    "OKABE_ITO",
     "PALETTE",
     "PALETTE_PRESETS",
     "PAUL_TOL_BRIGHT",
-    "PAUL_TOL_MUTED",
+    "SCIENTIFIC_FIGURE_HOUSE",
     "SEMANTIC_COLORS",
+    "TOL_HYBRID",
     "get_palette",
+    "recommend_palette",
     "FigureStyle",
     "style_from_profile",
     "apply_publication_style",

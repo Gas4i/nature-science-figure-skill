@@ -10,7 +10,8 @@
 - 坐标轴、tick 和 grid 是导航元素，不是数据元素；视觉权重必须低于数据线、点、误差棒和主要标注。
 - 默认线宽层级：数据线约 1.1 pt，误差棒约 0.85 pt，坐标轴约 0.75 pt，tick 约 0.60 pt，grid 约 0.30 pt。
 - tick 默认向外，major tick 长度约 2.5 pt；minor ticks 默认关闭。
-- grid 默认关闭。只有 time-series、dose-response、calibration curve、large dynamic range、engineering performance comparison 等读数确实重要的图才开启。
+- grid 默认关闭。解析模型曲线叠加实验点/误差棒、机制趋势图、普通趋势对照图，若主要信息是趋势一致性或阈值位置而非精确读数，不开启 grid。
+- 只有 time-series、dose-response、calibration curve、large dynamic range、engineering performance comparison 等读数确实重要，或用户/图注需要读者从图中精确比较数值时，才开启轻量 grid。
 - 开启 grid 时只用 major grid，不用 minor grid；优先 y-axis grid，浅灰、低 alpha，且必须弱于坐标轴和数据。
 - legend 无边框；若遮挡数据，移到图外或放入 dedicated legend panel。
 - 网格线轻量或不用。
@@ -26,9 +27,9 @@
 
 默认规则：
 
-1. 无语义分类默认使用 `get_palette("okabe_ito")`。
+1. 无语义分类默认使用 `get_palette("paul_tol_bright")`。
 2. 高对比分类使用 `get_palette("paul_tol_bright")`。
-3. 更安静或类别较多的论文主图使用 `get_palette("paul_tol_muted")`。
+3. 更安静或类别较多的论文主图使用 `get_palette("scientific_figure_house")`。
 4. 只有当图的语义明确匹配时，才使用 article-inspired palette。
 5. 类别超过颜色舒适区时，增加 marker、line style、直接标注；不要继续堆颜色。
 6. 禁用 `jet` 和 `rainbow`。

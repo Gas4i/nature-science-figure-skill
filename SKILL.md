@@ -32,10 +32,12 @@ Use this skill to turn research data and a scientific claim into a compliant, re
    - For standalone small figures intended for later PPT assembly, do not add panel labels by default. Add `a/b/c` or `A/B/C` labels only at the final multi-panel assembly stage, unless the user explicitly requests labels on the small figure.
 
 5. **Plot with restrained scientific style**
-   - Use Arial/Helvetica-compatible sans-serif fonts.
+   - Use Arial by default, with Helvetica/DejaVu Sans/sans-serif only as fallback fonts.
+   - Use skill palette presets by default. Read `references/palette-presets.md`, choose the preset that fits the chart type, category count, and semantic roles, and record `palette_name` plus rationale in the audit.
+   - Do not casually invent HEX colors. If no preset fits, propose a custom color strategy, explain why built-in presets are insufficient, and record the custom colors and rationale in the audit.
    - Use colorblind-safe palettes and redundant encoding with marker/line/hatch when categories exceed easy color separation.
-   - Read `references/palette-presets.md` before using a non-default palette or an article-inspired palette.
    - Use vector text and lines; keep raster content only for images, microscopy, scans, or heatmap-like pixel data.
+   - Keep grid lines off by default for analytic curves overlaid with experimental points/error bars unless exact visual readout is part of the claim.
    - Read `references/plot-recipes.md` for chart-specific patterns.
    - Prefer `scripts/plot_helpers.py` for common matplotlib bars, trends, scatter, heatmaps, semantic colors, dynamic y-limits, and dedicated legend panels.
 
@@ -53,6 +55,12 @@ Use this skill to turn research data and a scientific claim into a compliant, re
    - Always render a PNG preview before final export.
    - Read `references/validation.md` for the required audit loop.
    - Final deliverables should include editable vector output (`svg` by default; `pdf` only when final artwork or explicitly requested), raster preview, and an audit/provenance note.
+
+## Existing-Figure Optimization Rule
+
+When this skill is used to improve an already-created figure, apply the same standards as for a new figure. Reassess final physical size, panel layout, Arial-first fonts, journal-profile font sizes, palette preset selection, accessibility warnings, line widths, marker sizes, error bars, grids, legends, direct labels, vector/raster export, and audit notes.
+
+Do not preserve existing colors, fonts, grids, labels, or layout merely because they were present in the source figure. Preserve the scientific mapping and data semantics unless the user explicitly asks to keep the original visual identity.
 
 ## Quick Python Pattern
 

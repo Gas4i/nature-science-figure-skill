@@ -30,7 +30,7 @@ EMBEDDED_PROFILES: dict[str, dict] = {
             "double": {"mm": 183, "inch": 7.2047},
         },
         "font": {
-            "family": ["Helvetica", "Arial", "DejaVu Sans", "sans-serif"],
+            "family": ["Arial", "Helvetica", "DejaVu Sans", "sans-serif"],
             "label_target_pt": 7,
             "label_min_pt": 5,
             "tick_target_pt": 6,
@@ -69,18 +69,6 @@ EMBEDDED_PROFILES: dict[str, dict] = {
 }
 
 
-OKABE_ITO = [
-    "#E69F00",
-    "#56B4E9",
-    "#009E73",
-    "#F0E442",
-    "#0072B2",
-    "#D55E00",
-    "#CC79A7",
-    "#000000",
-]
-
-
 PAUL_TOL_BRIGHT = [
     "#4477AA",
     "#EE6677",
@@ -92,17 +80,14 @@ PAUL_TOL_BRIGHT = [
 ]
 
 
-PAUL_TOL_MUTED = [
-    "#332288",
-    "#88CCEE",
-    "#44AA99",
-    "#117733",
-    "#999933",
-    "#DDCC77",
+TOL_HYBRID = [
+    "#4477AA",
     "#CC6677",
-    "#882255",
-    "#AA4499",
-    "#DDDDDD",
+    "#228833",
+    "#CCBB44",
+    "#66CCEE",
+    "#AA3377",
+    "#BBBBBB",
 ]
 
 
@@ -123,6 +108,15 @@ NATURE_FOOD_NATURAL_2026 = {
     "profile_1": "#C3B99E",
     "profile_2": "#527995",
     "profile_3": "#B76366",
+}
+
+
+NATMED_SENESCENCE_2026 = {
+    "neutral_gray": "#CCCCCC",
+    "warm_peach": "#F2CAAD",
+    "pale_blue": "#DCE4F8",
+    "soft_red": "#ECAEA9",
+    "sage_green": "#ACBDA9",
 }
 
 
@@ -156,30 +150,52 @@ NATURE637_RED_BLUE_2025 = {
 }
 
 
+SCIENTIFIC_FIGURE_HOUSE = {
+    "blue_main": "#0F4D92",
+    "blue_secondary": "#3775BA",
+    "green_1": "#DDF3DE",
+    "green_2": "#AADCA9",
+    "green_3": "#8BCF8B",
+    "red_1": "#F6CFCB",
+    "red_2": "#E9A6A1",
+    "red_strong": "#B64342",
+    "neutral": "#CFCECE",
+    "highlight": "#FFD700",
+    "teal": "#42949E",
+    "violet": "#9A4D8E",
+}
+
+
 ARTICLE_INSPIRED_PALETTES = {
+    "tol_hybrid": TOL_HYBRID,
     "nature_energy_red_blue_2026": NATURE_ENERGY_RED_BLUE_2026,
     "nature654_gray_blue_red_2026": NATURE654_GRAY_BLUE_RED_2026,
     "nature_food_natural_2026": NATURE_FOOD_NATURAL_2026,
+    "natmed_senescence_2026": NATMED_SENESCENCE_2026,
     "natcomm_ssp_2025": NATCOMM_SSP_2025,
     "nature637_red_blue_2025": NATURE637_RED_BLUE_2025,
+    "scientific_figure_house": SCIENTIFIC_FIGURE_HOUSE,
 }
 
 
 PALETTE_PRESETS = {
-    "okabe_ito": OKABE_ITO,
-    "wong": OKABE_ITO,
     "paul_tol_bright": PAUL_TOL_BRIGHT,
-    "paul_tol_muted": PAUL_TOL_MUTED,
+    "tol_hybrid": TOL_HYBRID,
+    "paul_tol_hybrid": TOL_HYBRID,
     "nature_energy_red_blue_2026": NATURE_ENERGY_RED_BLUE_2026,
     "paper_palette_01": NATURE_ENERGY_RED_BLUE_2026,
     "nature654_gray_blue_red_2026": NATURE654_GRAY_BLUE_RED_2026,
     "paper_palette_02": NATURE654_GRAY_BLUE_RED_2026,
     "nature_food_natural_2026": NATURE_FOOD_NATURAL_2026,
     "paper_palette_03": NATURE_FOOD_NATURAL_2026,
+    "natmed_senescence_2026": NATMED_SENESCENCE_2026,
+    "paper_palette_04": NATMED_SENESCENCE_2026,
     "natcomm_ssp_2025": NATCOMM_SSP_2025,
     "natcomm_heat_adaptation_2025": NATCOMM_SSP_2025,
     "nature637_red_blue_2025": NATURE637_RED_BLUE_2025,
     "nature637_stripes_2025": NATURE637_RED_BLUE_2025,
+    "scientific_figure_house": SCIENTIFIC_FIGURE_HOUSE,
+    "figures4papers_house": SCIENTIFIC_FIGURE_HOUSE,
 }
 
 
@@ -214,10 +230,10 @@ SEMANTIC_COLORS = {
 }
 
 
-DEFAULT_COLORS = OKABE_ITO
+DEFAULT_COLORS = PAUL_TOL_BRIGHT
 
 
-def get_palette(name: str = "okabe_ito", as_dict: bool = False):
+def get_palette(name: str = "paul_tol_bright", as_dict: bool = False):
     """Return a named palette preset.
 
     List palettes are for categorical cycles. Dict palettes are article-inspired

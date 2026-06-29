@@ -86,7 +86,7 @@ python scripts/figure_skill.py check figures/figure1.svg figures/figure1.png --p
 - 裁切：增加边距、换行、缩短标签、使用 constrained layout。
 - legend 压数据：移到图外、共享 legend、dedicated legend panel 或直接标注。
 - tick 重叠：旋转、缩短标签、减少 tick、升一级 panel 尺寸。
-- 配色不可分：换 Okabe-Ito/colorblind palette，加 marker/line/hatch。
+- 配色不可分：换 Paul Tol bright/colorblind-aware palette，加 marker/line/hatch。
 - 数据被裁：扩大 axis limit 或使用 `ax.margins()`。
 
 ## Provenance 记录模板

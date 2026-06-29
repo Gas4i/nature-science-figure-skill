@@ -18,7 +18,7 @@
 - 单栏宽度 `89 mm`。
 - 双栏宽度 `183 mm`。
 - 必要时可使用 `120-136 mm` 的一栏半宽度，但不要作为默认。
-- 字体使用 Helvetica/Arial 兼容无衬线字体。
+- 字体默认使用 Arial；Helvetica/DejaVu Sans/sans-serif 仅作为后备无衬线字体。
 - 普通标签目标 `7 pt`，低于 `5 pt` 警告。
 - 原始研究图件使用 RGB。
 - 位图元素按最终尺寸至少 `300 dpi`。
@@ -48,7 +48,7 @@
 Nature 和 Science 可以共用：
 
 - 物理尺寸建图。
-- Arial/Helvetica 兼容字体栈。
+- 默认 Arial 的兼容无衬线字体栈。
 - 矢量优先导出。
 - RGB 默认。
 - 色盲友好配色。

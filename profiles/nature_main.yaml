@@ -16,7 +16,7 @@ widths:
 max_height:
   mm: 170
 font:
-  family: ["Helvetica", "Arial", "DejaVu Sans", "sans-serif"]
+  family: ["Arial", "Helvetica", "DejaVu Sans", "sans-serif"]
   label_target_pt: 7
   label_min_pt: 5
   tick_target_pt: 6
