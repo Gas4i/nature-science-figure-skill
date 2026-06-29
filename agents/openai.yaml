@@ -1,0 +1,6 @@
+﻿interface:
+  display_name: "Nature/Science Figure Skill"
+  short_description: "Nature/Science科研数据图制作与审计工具"
+  default_prompt: "Use $nature-science-figure-skill to create a Nature or Science compliant research figure with validation."
+policy:
+  allow_implicit_invocation: true

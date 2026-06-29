@@ -1,0 +1,67 @@
+journal: Nature
+profile: nature_main
+source_date: "2026-06-25"
+source_refs:
+  - references/source-links.md#nature-main
+widths:
+  single:
+    mm: 89
+    inch: 3.5039
+  intermediate:
+    mm_range: [120, 136]
+    note: "Use only when the figure needs one-and-a-half-column layout."
+  double:
+    mm: 183
+    inch: 7.2047
+max_height:
+  mm: 170
+font:
+  family: ["Helvetica", "Arial", "DejaVu Sans", "sans-serif"]
+  label_target_pt: 7
+  label_min_pt: 5
+  tick_target_pt: 6
+  max_font_levels: 3
+panel_label:
+  case: lowercase
+  weight: bold
+  target_pt: 8
+line:
+  min_pt: 0.28
+  target_pt: 0.75
+  data_target_pt: 1.10
+  error_bar_target_pt: 0.85
+axis:
+  default_spines: open
+  spine_width_pt: 0.75
+  ordinary_plots: "Use left/bottom spines only."
+  framed_plots: ["heatmap", "image", "microscopy", "map", "confusion_matrix", "phase_diagram"]
+tick:
+  direction: out
+  major_width_pt: 0.60
+  major_length_pt: 2.50
+  minor_visible: false
+grid:
+  default: false
+  allowed_when_readout_matters: true
+  major_only: true
+  color: "#E5E5E5"
+  linewidth_pt: 0.30
+  alpha: 0.28
+color:
+  mode: RGB
+  colorblind_safe: true
+  avoid_red_green: true
+  require_redundant_encoding_when_needed: true
+raster:
+  min_dpi: 300
+  note: "Place bitmap elements at final size, not upsampled."
+vector:
+  preferred: true
+  formats: ["pdf", "svg", "eps"]
+  preserve_text: true
+export:
+  default_formats: ["svg", "png"]
+  default_purpose: ppt
+  transparent_raster_for_ppt: true
+  preview_dpi: 200
+  final_raster_dpi: 300

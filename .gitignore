@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+
+# Local/private source archives. Keep publisher PDFs/templates out of public repos.
+references/sources/
+local_sources/
+*.ait
+*.ai
